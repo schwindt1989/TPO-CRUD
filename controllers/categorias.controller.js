@@ -10,14 +10,14 @@ async function CreateCategoria(req, res) {
 async function GetAllCategorias(req, res) {
     const sql = 'SELECT * FROM categorias';
     const result = await db.query(sql)
-    res.json(result.rows[0]);
+    res.json(result.rows);
 }
 
 async function GetOneCategoria(req, res) {
     const sql = "SELECT * FROM categorias WHERE id = $1";
     const values = [req.params.id]
     const result = await db.query(sql, values)
-    res.json(result.rows);
+    res.json(result.rows[0]);
 }
 
 async function UpdateCategoria(req, res) {
