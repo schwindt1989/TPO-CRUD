@@ -8,5 +8,5 @@ module.exports = new pg.Pool({
   host: process.env.PG_HOST,
   port: process.env.PG_PORT,
   database: process.env.PG_DATABASE,
-  ssl: true
+  ssl: process.env.PG_SSL === "true"
 });
